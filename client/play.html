@@ -2,6 +2,7 @@
     {{> loginButtons}}
     {{#if currentUser}}
         {{> status}}
+        {{> stats}}
         {{> table}}
         {{> hand}}
     {{/if}}
@@ -29,9 +30,25 @@
     <h2> Hand </h2>
     {{#each player.hand}}
     <div class='card {{type}}'>
-        <div>{{name}}</div>
-        <div>{{value}}</div>
+        <span>{{name}}</span>
+        {{# if value}}
+            <span>{{value}}</span>
+        {{/if }}
     </div>
     {{/each}}
+    <br>
+    {{> pass}}
 </div>
+</template>
+
+
+<template name='stats'>
+    <p>Your LifePoint: {{player.lifePoint}} </p>
+    <p>Opponent's LifePoint: {{otherPlayer.lifePoint}} </p>
+    <p>Deck Size: {{deckSize}} </p>
+    <p>Turns till Fatigue: {{fatigueCountDown}} </p>
+</template>
+
+<template name='pass'>
+<button> Pass </button>
 </template>

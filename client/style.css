@@ -1,0 +1,73 @@
+.card {
+	background-color: #ececec;
+	border: 1px solid #000;
+	display:  inline-block;
+	margin: 10px;
+	height: 187px;
+	width: 120px;
+	text-align: center;
+	border-radius: 5px;
+}
+
+.card span:nth-of-type(1){
+	font-size: 80px;
+	line-height: 165px;
+}
+
+.card span:nth-of-type(2){
+	position: relative;
+	bottom: 40px;
+	font-size: 20px;
+}
+
+.curse {
+	background-color: #db4d4d;
+	color: white
+}
+
+.blast {
+	background-color: #ffbf29;
+}
+
+.doubler{
+	background-color: #6229ff;
+	color: white;
+}
+
+.healer{
+	background-color: #3e8f00;
+	color: white;
+}
+
+.block{
+	background-color: #00d3d6;
+}
+
+.rebound{
+	background-color: #c2cc00;
+}
+
+#hand .card:hover {
+	cursor: pointer;
+	transform: rotate(10deg);
+}
+
+#hand, #table {
+	min-height: 300px;
+	border-radius: 5px;
+}
+
+#hand {
+	background-color: #fcffbd;
+	border: 5px solid;
+	padding: 20px;
+	text-align: center;
+}
+
+#table {
+	background-color: #005210;
+	color: white;
+	border: 5px solid;
+	padding: 20px;
+	text-align: center;
+}

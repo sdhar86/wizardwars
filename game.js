@@ -27,5 +27,9 @@ Meteor.methods({
     createGame: function (otherPlayerId) {
         var game = GameFactory.createGame([Meteor.userId(), otherPlayerId]);
         Games.insert(game);
+    },
+    playCard: function  (gameId, id, card) {
+        var game = Games.findOne(gameId),
+            hand = game.players[id].hand;
     }
 });    
