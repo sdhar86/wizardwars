@@ -55,7 +55,8 @@ function createDeck () {
             cards.push({
                 type: type,
                 value: value,
-                name: name
+                name: name,
+                id: i
             });	 		
         }
 
@@ -65,7 +66,8 @@ function createDeck () {
             cards.push({
                 type: type,
                 value: i,
-                name: name
+                name: name,
+                id: i
             });	 		
         }     
 
@@ -75,7 +77,8 @@ function createDeck () {
             cards.push({
                 type: type,
                 value: 0,
-                name: name
+                name: name,
+                id: i
             });	 		
         } 
 
@@ -85,7 +88,8 @@ function createDeck () {
             cards.push({
                 type: type,
                 value: 0,
-                name: name
+                name: name,
+                id:  i
             });	 		
         } 
 
@@ -95,7 +99,8 @@ function createDeck () {
             cards.push({
                 type: type,
                 value: 0,
-                name: name
+                name: name,
+                id: i
             });	 		
         }                           
 

@@ -18,8 +18,8 @@
     <h2> Table </h2>
     {{#each table}}
     <div class='card {{type}}'>
-        <div>{{name}}</div>
-        <div>{{value}}</div>
+        <span>{{name}}</span>
+        <span>{{value}}</span>
     </div>
     {{/each}}
 </div>
@@ -47,6 +47,7 @@
     <p>Opponent's LifePoint: {{otherPlayer.lifePoint}} </p>
     <p>Deck Size: {{deckSize}} </p>
     <p>Turns till Fatigue: {{fatigueCountDown}} </p>
+    <p>Turn Count: {{turnCount}} </p>
 </template>
 
 <template name='pass'>
