@@ -2,10 +2,24 @@
     {{> loginButtons}}
     {{#if currentUser}}
         {{> status}}
-        {{> stats}}
-        {{> table}}
-        {{> hand}}
+        {{> stats}} 
+
+        {{#unless inProgress}}
+            {{> score}}
+        {{/unless}}
+
+        {{#if inProgress}}
+            {{> table}}
+            {{> hand}}
+            {{> lastCard}}
+        {{/if}}
+
     {{/if}}
+</template>
+
+<template name = "score" >
+    <h2>Game Over!</h2>
+    <h3> {{message}} </h3>
 </template>
 
 <template name='status'>
@@ -48,6 +62,17 @@
     <p>Deck Size: {{deckSize}} </p>
     <p>Turns till Fatigue: {{fatigueCountDown}} </p>
     <p>Turn Count: {{turnCount}} </p>
+    <p>Pending Damage: {{player.pendingDamage}} </p>
+    <p>Opponent's Pending Damage: {{otherPlayer.pendingDamage}} </p>
+    <p>used cards: {{used.length}} </p>
+    <p>total: {{total}} </p>
+</template>
+
+<template name = "lastCard">
+    <div class = "card {{lastCard.type}}">
+        <span>{{lastCard.name}}</span>
+        <span>{{lastCard.value}}</span>
+    </div>    
 </template>
 
 <template name='pass'>

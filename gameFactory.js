@@ -15,6 +15,7 @@ GameFactory.createGame = function (playerIds) {
 		fatigueCountDown: 10,    
 	    inProgress: true,
 	    currentTurn: playerIds,
+        lastCard: {},
 	    started: new Date()
 	};
 };
