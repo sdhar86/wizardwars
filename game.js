@@ -149,6 +149,7 @@ Meteor.methods({
             game.players[id].pendingDamage = 0; 
             
 
+
             game.currentTurn.unshift(game.currentTurn.pop()); // change current turn
             
             game.turnCount ++ ; // count turn
@@ -161,6 +162,9 @@ Meteor.methods({
             }         
 
             game.lastCard = card;  
+            // history to plot
+            game.players[id].turnHistory.push(game.players[id].lifePoint);
+            game.players[otherId].turnHistory.push(game.players[otherId].lifePoint);
 
             if (game.players[id].lifePoint <= 0 || game.players[otherId].lifePoint <= 0 ){
                 game.inProgress = false;

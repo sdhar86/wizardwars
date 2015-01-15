@@ -8,5 +8,5 @@ meteor-platform
 accounts-password
 iron:router
 accounts-ui
-bootstrap
 momentjs:moment
+mfpierre:chartist-js

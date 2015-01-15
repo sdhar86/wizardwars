@@ -1,7 +1,7 @@
 <template name='play'>
     {{> loginButtons}}
     {{#if currentUser}}
-        {{> status}}
+<!--         {{> status}}
         {{> stats}} 
 
         {{#unless inProgress}}
@@ -12,69 +12,129 @@
             {{> table}}
             {{> hand}}
             {{> lastCard}}
+        {{/if}} -->
+            {{> status}}
+         {{#if inProgress}}   
+        <div id = "toppanel">
+            <div class = "row">
+                <div class="col-md-3 horizontal-center vertical-center"> 
+                {{> yourlife}} 
+                </div>
+                <div class="col-md-6 horizontal-center"> {{> hand}} </div>
+                <div class="col-md-3 horizontal-center"> {{> opponentlife}}</div>
+            </div>
+        </div>
         {{/if}}
+        <div class = "row">
+            <div class = "col-md-9">
+                {{#unless inProgress}}
+                    {{> score}}
+                {{/unless}}
 
+                {{#if inProgress}}
+                    {{> table}}
+                {{/if}}
+            </div>
+            <div class = "col-md-3">{{> lastCard}}</div>
+        </div>
+            {{#if inProgress}}
+                {{> infobar}}
+            {{/if}}
+            
     {{/if}}
 </template>
 
+
+<template name = "yourlife">
+    <h1 class = "yellow">{{player.lifePoint}}</h1> 
+    <h1>(You)</h1>
+</template>
+
+<template name = "opponentlife">
+    <h1 class = "yellow">{{otherPlayer.lifePoint}}</h1>
+    <h1>({{otherPlayer.username}})</h1>
+</template>
+
+
 <template name = "score" >
-    <h2>Game Over!</h2>
-    <h3> {{message}} </h3>
+    <div id = "score" class ="horizontal-center">
+        <h1>Game Over! ({{message}})</h1>
+        <h2> <a href='/'> Go back to Home  to start another game</a> </h2>
+<!--         <div id = "chart">
+            <div class="ct-chart"></div>
+        </div> -->
+    </div>
 </template>
 
 <template name='status'>
-<h2> <a href='/'> &larr; Home </a> </h2>
-<h3> Game between you and {{otherPlayer.username}} {{#if inProgress}} {{#if yourTurn}} (Your Turn) {{/if}} {{/if}}</h3>
+<div class = "well">
+    <div class = "row">
+    <div class="col-md-4"><h2> <a href='/'> &larr; Home </a> </h2></div>
+    <div class="col-md-8">
+        <h3> Game between you and {{otherPlayer.username}}</h3>
+    </div>
+
+    </div>
+</div>
 </template>
 
 <template name='table'>
-<div id='table'>
-    <h2> Table </h2>
-    {{#each table}}
-    <div class='card {{type}}'>
-        <span>{{name}}</span>
-        <span>{{value}}</span>
+    <div id='table'>
+        <h3> Table {{#if inProgress}} {{#if yourTurn}} (Your Turn) {{/if}} {{/if}} </h3>
+        {{#each table}}
+        <div class='card {{type}}'>
+            <span>{{name}}</span>
+            <span>{{value}}</span>
+        </div>
+        {{/each}}
     </div>
-    {{/each}}
-</div>
 </template>
 
 <template name='hand'>
-<div id='hand'>
-    <h2> Hand </h2>
-    {{#each player.hand}}
-    <div class='card {{type}}'>
-        <span>{{name}}</span>
-        {{# if value}}
-            <span>{{value}}</span>
-        {{/if }}
-    </div>
-    {{/each}}
-    <br>
-    {{> pass}}
-</div>
-</template>
+        <div id='hand'> 
+            {{#each player.hand}}
+            <div class='card {{type}}'>
+                <span>{{name}}</span>
+                <span>{{value}}</span>
+            </div>
+            {{/each}}
+            <br>
+          <!--   {{> pass}} -->
+        </div>
+ </template>
 
 
 <template name='stats'>
-    <p>Your LifePoint: {{player.lifePoint}} </p>
-    <p>Opponent's LifePoint: {{otherPlayer.lifePoint}} </p>
     <p>Deck Size: {{deckSize}} </p>
     <p>Turns till Fatigue: {{fatigueCountDown}} </p>
     <p>Turn Count: {{turnCount}} </p>
-    <p>Pending Damage: {{player.pendingDamage}} </p>
-    <p>Opponent's Pending Damage: {{otherPlayer.pendingDamage}} </p>
+<!--     <p>Pending Damage: {{player.pendingDamage}} </p>
+    <p>Opponent's Pending Damage: {{otherPlayer.pendingDamage}} </p> -->
     <p>used cards: {{used.length}} </p>
-    <p>total: {{total}} </p>
+    <!-- <p>total: {{total}} </p> -->
 </template>
 
 <template name = "lastCard">
-    <div class = "card {{lastCard.type}}">
-        <span>{{lastCard.name}}</span>
-        <span>{{lastCard.value}}</span>
-    </div>    
+    <div class = "last horizontal-center">
+        <div class = "card {{lastCard.type}}">
+            <span>{{lastCard.name}}</span>
+            <span>{{lastCard.value}}</span>
+        </div>  
+        <h3 class="yellow">Last Card</h3>
+    </div>  
 </template>
 
 <template name='pass'>
-<button> Pass </button>
+<button class = "btn btn-primary btn-lg"> Pass </button>
+</template>
+
+<template name = "infobar">
+    <div id = "infobar">
+          <div class = "row">
+            <div class = "col-md-3"> Deck  Size: {{deckSize}} </div>
+            <div class = "col-md-3"> Turns till Fatigue: {{fatigueCountDown}} </div>
+            <div class = "col-md-3"> Turn Count: {{turnCount}} </div>
+            <div class = "col-md-3"> Used cards: {{used.length}}</div>
+        </div>  
+    </div>
 </template>

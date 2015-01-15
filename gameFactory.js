@@ -38,6 +38,7 @@ function createPlayers(ids) {
         o[id] = {
             hand: [],
             lifePoint: 20,
+            turnHistory: [],
             pendingDamage: 0
         };
     });

@@ -3,8 +3,8 @@
 	border: 1px solid #000;
 	display:  inline-block;
 	margin: 10px;
-	height: 187px;
-	width: 120px;
+	height: 180px;
+	width: 125px;
 	text-align: center;
 	border-radius: 5px;
 }
@@ -54,26 +54,58 @@
 	transform: rotate(10deg);
 }
 
-#hand, #table {
-	min-height: 300px;
-	border-radius: 5px;
-}
-
-#hand {
-	background-color: #fcffbd;
-	border: 5px solid;
-	padding: 20px;
-	text-align: center;
-}
 
 #table {
+	min-height: 320px;
 	background-color: #005210;
 	color: white;
 	border: 5px solid;
 	padding: 20px;
 	text-align: center;
+	border-radius: 8px;
 }
 
 #table .card {
 	border-color: white;
+}
+
+#toppanel {
+	background: #222;
+	color: #eee;
+	min-height: 20px;
+	padding: 19px;
+	margin-bottom: 20px;
+	border: 1px solid #FFFFCC;
+	border-radius: 8px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+}
+
+.horizontal-center{
+	text-align: center;
+}
+
+.vertical-center{
+	vertical-align: middle;
+}
+
+.yellow {
+	color: #ffec03;
+}
+
+.last{
+	background-color: #222;
+	padding: 19px;
+	border-radius: 5px;
+}
+
+#infobar{
+	background-color: #222;
+	padding: 19px;
+	border-radius: 5px;
+	color: #eee
+}
+
+#score {
+	min-height: 320px;
 }
